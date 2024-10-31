@@ -1,0 +1,17 @@
+<div>
+  <mat-form-field>
+    <mat-label>Filtrar por Descripción</mat-label>
+    <input matInput [(ngModel)]="filtrarDescripcion">
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" (click)="abrirFormulario()">Añadir Imagen</button>
+</div>
+
+<mat-grid-list cols="3" rowHeight="2:1">
+  <mat-grid-tile *ngFor="let imagen of imagenesFiltradas" (click)="abrirDialogo(imagen)">
+    <img [src]="imagen.url" alt="{{imagen.descripcion}}">
+    <mat-grid-tile-footer>
+      <h3>{{imagen.descripcion}}</h3>
+    </mat-grid-tile-footer>
+  </mat-grid-tile>
+</mat-grid-list>
